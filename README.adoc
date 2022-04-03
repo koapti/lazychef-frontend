@@ -1,0 +1,2 @@
+# lazychef-frontend
+Frontend of Lazychef application
