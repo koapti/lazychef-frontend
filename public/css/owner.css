@@ -48,3 +48,59 @@ form.register{
     background-color: lightgreen;
     margin-left: 4em;
 }
+
+table{
+    background-color: white;
+    border: 2px black;
+    border-style: solid;
+    width: 50em;
+    border-radius: 1em;
+}
+
+table>thead{
+    border-bottom: 1px black;
+    border-bottom-style: solid;
+}
+
+table, tr td {
+    border: 1px solid black
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
+
+tbody {
+    display: block;
+    height: 25em;
+    width: 50em;
+    overflow: auto;
+}
+
+.owner-edit-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.addDish{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: lightgray;
+    border-radius: 1em;
+    border: 2px black;
+    border-style: solid;
+}
+
+.addDish>.choose>button{
+    margin-right: 1em;
+}
+
+.addDish{
+    position: fixed;
+    bottom: 10px;
+}
