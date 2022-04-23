@@ -1,0 +1,45 @@
+.container, body{
+    height: 100em;
+}
+
+.logo-waiter{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 0 0;
+    border-radius: 0 0 1em 1em;
+    position: fixed;
+    top: 0px;
+}
+
+.content-waiter-container{
+    margin-top: 6em;
+    height: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-waiter-container:last-child{
+    flex:1;
+}
+
+.orders{
+    height: 40em;
+    overflow: auto;
+}
+
+.order{
+    background-color: white;
+}
+
+.waiter-buttons{  
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
