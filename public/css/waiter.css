@@ -139,3 +139,76 @@ h3{
 {
     display: flex;
 }
+
+.make-order{
+   width: 50em;
+   height: 80em;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.details, .details>form, .choose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details>form{
+    padding-top: 3em;
+    height: 70em;
+    overflow: auto;
+    margin: 3em;
+}
+
+#tab-num{
+    width: 4em;
+}
+
+.choose{
+    width: 50em;
+}
+
+#type{
+    border-radius: 1em;
+    height: 4em;
+    width: 30em;
+}
+
+.summary{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.summary>div{
+    background-color: white;
+    border-radius: 2em;
+    width: 10em;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#button-accept{
+    background-color: lightgreen;
+    border-radius: 2em;
+    width: 6em;
+    height: 5em;
+}
+
+#tab-num, #uwagi{
+    background-color: white;
+}
+
+#uwagi{
+    margin-top: 0px;
+    border-radius: 0 0 1em 1em;
+    height: 3em;
+    padding: 0px;
+}
