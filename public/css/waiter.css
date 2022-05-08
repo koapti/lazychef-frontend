@@ -140,7 +140,7 @@ h3{
     display: flex;
 }
 
-.make-order{
+.make-order, .table-orders{
    width: 50em;
    height: 80em;
    display: flex;
@@ -204,6 +204,7 @@ h3{
 
 #tab-num, #uwagi{
     background-color: white;
+    margin-top: 2em;
 }
 
 #uwagi{
@@ -211,4 +212,31 @@ h3{
     border-radius: 0 0 1em 1em;
     height: 3em;
     padding: 0px;
+}
+
+.summary-orders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-cost{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.order-details-sum{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-around;
+    width: 35em;
+}
+
+.table-orders{
+    overflow: auto;
+    justify-content: space-between;
 }
