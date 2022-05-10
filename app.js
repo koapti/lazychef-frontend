@@ -39,9 +39,9 @@ app.get('/cook', (req, res) => {
   res.render('cook')
 })
 
-app.get('/owner', (req, res) => {
+app.get('/ownerAddEmp', (req, res) => {
   // check AUTH
-  res.render('owner')
+  res.render('ownerAddEmp')
 })
 
 app.get('/login', (req, res) => {
