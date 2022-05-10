@@ -1,0 +1,242 @@
+html, body {
+    margin: 0;
+    height: 100%; 
+    overflow: hidden
+}
+
+.logo-waiter{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 0 0;
+    border-radius: 0 0 1em 1em;
+    position: fixed;
+    top: 0px;
+}
+
+.content-waiter-container{
+    height: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-waiter-container:last-child{
+    flex:1;
+}
+
+.orders{
+    margin-top: 4em;
+    height: 100%;
+    overflow: auto;
+}
+
+.order{
+    display: flex;
+    background-color: white;
+    height: 13%;
+    width: 42em;
+    border-radius: 2em;
+    flex-direction: row;
+    margin-top: 3em;
+    border: 2px;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+
+}
+
+.waiter-buttons{  
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.order-navigation
+{
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    width: 35em;
+}
+
+.info{
+    align-self: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    border-width: medium;
+    border-style: solid;
+    background-color: red;
+}
+
+.info2{
+    align-self: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    border-width: medium;
+    border-style: solid;
+    margin-left: 1em;
+    margin-right: 2em;
+    background-color: blue;
+}
+
+h3{
+    margin-left: 2em;
+}
+
+.waiter-buttons{
+    margin-top: 1em;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* border-color: black;
+    border-width: thick;
+    border-style: solid;
+    border-color: #000; */
+}
+
+#button-sum{
+    background-color: lightgray;
+    height: 4em;
+    width: 5em;
+    border-radius: 1.5em;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+}
+
+#button-connect{
+    background-color: lightgray;
+    height: 4em;
+    width: 5em;
+    border-radius: 1.5em;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+}
+
+#button-add{
+    background-color: lightgray;
+    height: 4em;
+    width: 5em;
+    border-radius: 1.5em;
+    border-color: black;
+    border-width: medium;
+    border-style: solid;
+    border-color: #000;
+}
+.order-info
+{
+    display: flex;
+}
+
+.make-order, .table-orders{
+   width: 50em;
+   height: 80em;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.details, .details>form, .choose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details>form{
+    padding-top: 3em;
+    height: 70em;
+    overflow: auto;
+    margin: 3em;
+}
+
+#tab-num{
+    width: 4em;
+}
+
+.choose{
+    width: 50em;
+}
+
+#type{
+    border-radius: 1em;
+    height: 4em;
+    width: 30em;
+}
+
+.summary{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.summary>div{
+    background-color: white;
+    border-radius: 2em;
+    width: 10em;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#button-accept{
+    background-color: lightgreen;
+    border-radius: 2em;
+    width: 6em;
+    height: 5em;
+}
+
+#tab-num, #uwagi{
+    background-color: white;
+    margin-top: 2em;
+}
+
+#uwagi{
+    margin-top: 0px;
+    border-radius: 0 0 1em 1em;
+    height: 3em;
+    padding: 0px;
+}
+
+.summary-orders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-cost{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.order-details-sum{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-around;
+    width: 35em;
+}
+
+.table-orders{
+    overflow: auto;
+    justify-content: space-between;
+}
