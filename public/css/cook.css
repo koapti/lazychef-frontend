@@ -17,6 +17,7 @@
     width: 10em;
     position: fixed;
     margin-right: 80%;
+    border-radius: 1em;
 }
 
 .content-cook-container{

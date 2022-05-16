@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/owner.css" rel="stylesheet">
+  <title>OWNER ADD EMPLOYEE PAGE</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo-owner">
+        <button id="button-owner">menu</button>
+        <img src="img/logo.svg" height="90em">
+        <button id="button-owner">employees</button>
+    </div>
+    <div class="owner-add-employee">
+      <form class="register" action="register" method="POST">
+        <input name="name" type="text" placeholder="name">
+        <input name="surname" type="text" placeholder="surname">
+        <input name="email" type="text" placeholder="email@email.com">
+        <input name="password" type="password" placeholder="password">
+        <input name="confirmedPassword" type="password" placeholder="confirm password">
+        <div class="choose">
+          <select name="roles" id="role">
+            <option value="waiter">Waiter</option>
+            <option value="cook">Cook</option>
+            <option value="barman">Barman</option>
+          </select>
+          <button type="submit">REGISTER</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</body>
+
+</html>
