@@ -471,3 +471,124 @@
 </body>
 
 </html>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- templates for making order -->
+<template id="make-order-container">
+  <div class="make-order"> <!-- one div -->
+
+      <div class="details"> <!-- one div -->
+        <form>
+          <input name="table-number" type="number" placeholder="nr" id="tab-num">
+          <!-- multiple choose divs -->
+        </form>
+      </div>
+
+      <div class="summary"> <!-- one div -->
+        <div>
+          <h1>
+            <i class="fas fa-coins"></i>
+            <!-- costSummary -->
+          </h1>
+        </div>
+        <button id="button-accept">
+          <i class="fas fa-check"></i>
+          Accept
+        </button>
+      </div>
+    </div>
+</template>
+
+<template id="options-for-make-order-container">
+  <div class="choose"> 
+    <select name="dish" id="type">
+      <!-- multiple options ( options form DB) -->
+    </select>
+    <input name="options" type="text" placeholder="uwagi" id="uwagi">
+  </div>
+</template>
+
+<template id="option-for-make-order-container">
+  <option value=""><!-- name --></option>
+</template>
+<!-- templates for making order -->
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- templates for summary by table -->
+<template id="summary-orders-container">
+  <div class="summary-orders">
+    <form>
+      <input name="table-number" type="number" placeholder="nr" id="tab-num">
+    </form>
+  
+    <div class="table-orders">
+      <!-- multiple orders divs -->
+    </div>
+  
+    <div class="summary">
+      <div>
+        <h1>
+          <i class="fas fa-coins"></i>
+          <!-- costSummary -->
+        </h1>
+      </div>
+      <button id="button-accept">
+        <i class="fas fa-check"></i>
+        Accept
+      </button>
+    </div>
+  </div>
+</template>
+
+<template id="one-order-container">
+  <div class="order">
+    <div class="order-details-sum">
+      <h3><!--nr zam--></h3>
+      <h3><!--opis--></h3>
+    </div>
+    <div class="order-cost">
+      <i class="fas fa-coins"></i>
+      <h3><!--cost--></h3>
+    </div>
+  </div>
+</template>
+<!-- templates for summary by table -->
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- templates for all current orders -->
+<template id="content-waiter-all-orders-(main)">
+  <div class="content-waiter-container">
+      
+    <div class="orders">
+      <!-- multiple order divs -->
+      
+    
+    <div class="waiter-buttons">
+      <button id="button-sum">S</button>
+      <button id="button-connect">Connect</button>
+      <button id="button-add">P</button>
+    </div>   
+  </div>
+</template>
+
+<template id="orders-for-all-orders">
+  <div class="order">
+        <div class="order-details">
+          <div class="order-navigation">
+            <h3><!-- Nr. zam: 2 --></h3>
+            <h3><!-- Nr. stol: 2 --></h3>
+          </div>
+          <h3><!-- opis --></h3>
+        </div>
+        <div class="order-info">
+          <div class="info"></div><!-- states -->
+          <div class="info2"></div>
+        </div>
+      </div>
+</template>
+<!-- templates for all current orders -->
