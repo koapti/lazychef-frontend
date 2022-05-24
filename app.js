@@ -3,9 +3,9 @@ const livereload = require("livereload");
 const connectLiveReload = require("connect-livereload");
 
 const app = express()
-const port = 3000
+const port = 3001
 
-const liveReloadServer = livereload.createServer();
+const liveReloadServer = livereload.createServer({port: 8082});
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/cook");

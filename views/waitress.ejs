@@ -4,14 +4,27 @@
 <head>
   <link href="css/style.css" rel="stylesheet">
   <link href="css/waiter.css" rel="stylesheet">
-  <script src="js/waiter.js"></script>
+  <script src="js/waitress.js"></script>
   <script src="https://kit.fontawesome.com/d6606babc0.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"
+    integrity="sha512-5yJ548VSnLflcRxWNqVWYeQZnby8D8fJTmYRLyvs445j1XmzR8cnWi85lcHx3CUEeAX+GrK3TqTfzOO6LKDpdw=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+    integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+
   <div class="container">
     <div class="logo-waiter">
-        <img src="img/logo.svg" height="90em">
+      <button style="margin-top:20px;height:100px;width:100px" onclick="connectBtnHandler()">
+        Connect
+      </button>
+      <button style="margin-top:20px;height:100px;width:100px" onclick="addBtnHandler()">
+        Add
+      </button>
+      <img src="img/logo.svg" height="90em">
     </div>
 
     <div class="summary-orders">
@@ -20,17 +33,6 @@
       </form>
 
       <div class="table-orders">
-        
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
 
         <div class="order">
           <div class="order-details-sum">
@@ -42,97 +44,6 @@
             <h3>15zl</h3>
           </div>
         </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-        
 
       </div>
 
@@ -467,7 +378,7 @@
         <button id="button-add">P</button>
       </div>   
     </div> -->
-</div>
+  </div>
 </body>
 
 </html>
