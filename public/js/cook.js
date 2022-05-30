@@ -4,11 +4,25 @@ function changeStatusByDiv(event, divStatus, isAtomicOrder){
     if(divStatus.style.backgroundColor == 'red'){
         divStatus.style.backgroundColor = 'orange';
     }else{
-        divStatus.style.backgroundColor = 'green';
         if(!isAtomicOrder){
-            setTimeout(function () {
-                divStatus.parentElement.parentElement.remove();
-            }, 2000);
+            // if all atomic == green
+            const allAtomics = divStatus.parentElement.parentElement.querySelectorAll(".atomic-status");
+            var completed = true;
+            
+            allAtomics.forEach(element => {
+                if(element.style.backgroundColor != "green"){
+                    completed = false;
+                }
+            });
+
+            if(completed){
+                divStatus.style.backgroundColor = 'green';
+                setTimeout(function () {
+                    divStatus.parentElement.parentElement.remove();
+                }, 2000);
+            }
+        }else{
+            divStatus.style.backgroundColor = 'green';
         }
     }
 }
