@@ -1,10 +1,15 @@
 var counter = 2;
 
-function changeStatusByDiv(event, divStatus){
+function changeStatusByDiv(event, divStatus, isAtomicOrder){
     if(divStatus.style.backgroundColor == 'red'){
         divStatus.style.backgroundColor = 'orange';
     }else{
         divStatus.style.backgroundColor = 'green';
+        if(!isAtomicOrder){
+            setTimeout(function () {
+                divStatus.parentElement.parentElement.remove();
+            }, 2000);
+        }
     }
 }
 
@@ -29,13 +34,12 @@ function addOrderToList(){
 
     const divAtomicStatus = atomicOrderClone.querySelector(".atomic-status");
     divAtomicStatus.style.backgroundColor = 'red';
+    divAtomicStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divAtomicStatus, true));
 
-    divAtomicStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divAtomicStatus));
-
+    // koniec atomic orderow
     const divStatus = clone.querySelector(".order-status");
     divStatus.style.backgroundColor = 'red';
-
-    divStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divStatus));
+    divStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divStatus, false));
 
     clone.querySelector("div").appendChild(atomicOrderClone);
 
