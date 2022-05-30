@@ -1,15 +1,10 @@
 var counter = 2;
 
-
-function changeStatus(event, id){
-    const order = document.getElementById(id);
-    const status = order.querySelector(".order-status");
-    console.log(status.style.backgroundColor)
-
-    if(status.style.backgroundColor == 'red'){
-        status.style.backgroundColor = 'orange';
+function changeStatusByDiv(event, divStatus){
+    if(divStatus.style.backgroundColor == 'red'){
+        divStatus.style.backgroundColor = 'orange';
     }else{
-        status.style.backgroundColor = 'green';
+        divStatus.style.backgroundColor = 'green';
     }
 }
 
@@ -32,12 +27,15 @@ function addOrderToList(){
 
     nazwaDania.innerHTML = "Kotlet plus fryty";
 
-    //.order-status
+    const divAtomicStatus = atomicOrderClone.querySelector(".atomic-status");
+    divAtomicStatus.style.backgroundColor = 'red';
+
+    divAtomicStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divAtomicStatus));
 
     const divStatus = clone.querySelector(".order-status");
     divStatus.style.backgroundColor = 'red';
 
-    divStatus.addEventListener("click", changeStatus.bind(null,event,counter));
+    divStatus.addEventListener("click", changeStatusByDiv.bind(null,event,divStatus));
 
     clone.querySelector("div").appendChild(atomicOrderClone);
 
