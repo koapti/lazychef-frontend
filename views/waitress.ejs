@@ -4,7 +4,8 @@
 <head>
   <link href="css/style.css" rel="stylesheet">
   <link href="css/waiter.css" rel="stylesheet">
-  <script src="js/waiter.js"></script>
+  <script src="ejs.min.js" defer></script>
+  <script src="js/waitress.js" defer></script>
   <script src="https://kit.fontawesome.com/d6606babc0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -14,7 +15,7 @@
         <img src="img/logo.svg" height="90em">
     </div>
 
-    <div class="summary-orders">
+    <!-- <div class="summary-orders">
       <form>
         <input name="table-number" type="number" placeholder="nr" id="tab-num">
       </form>
@@ -148,7 +149,7 @@
           Accept
         </button>
       </div>
-    </div>
+    </div> -->
 
     <!-- htmle do zamawiania!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <!-- <div class="make-order"> 
@@ -303,14 +304,14 @@
     </div> -->
 
     <!-- htmle widok wszystkich zam!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- <div class="content-waiter-container">
+    <div class="content-waiter-container">
       
       <div class="orders">
         <div class="order">
           <div class="order-details">
             <div class="order-navigation">
               <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
+              <h3>Nr. stol: 2</h3>
             </div>
             <h3>Kotlet + fryty, zur</h3>
           </div>
@@ -324,7 +325,7 @@
           <div class="order-details">
             <div class="order-navigation">
               <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
+              <h3>Nr. stol: 2</h3>
             </div>
             <h3>Kotlet + fryty, zur</h3>
           </div>
@@ -334,7 +335,7 @@
           </div>
         </div>
 
-        <div class="order">
+        <div class="order">  
           <div class="order-details">
             <div class="order-navigation">
               <h3>Nr. zam: 2</h3>
@@ -348,125 +349,14 @@
           </div>
         </div>
 
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
       </div>
       
       <div class="waiter-buttons">
-        <button id="button-sum">S</button>
+        <button id="button-sum" onclick="sumOrders()">S</button>
         <button id="button-connect">Connect</button>
-        <button id="button-add">P</button>
+        <button id="button-add" onclick="addOrder()">P</button>
       </div>   
-    </div> -->
+    </div>
 </div>
 </body>
 
@@ -492,6 +382,10 @@
             <!-- costSummary -->
           </h1>
         </div>
+        <button id="button-delete">
+          <i class="fas fa-trash"></i>
+          Delete
+        </button>
         <button id="button-accept">
           <i class="fas fa-check"></i>
           Accept
@@ -534,6 +428,10 @@
           <!-- costSummary -->
         </h1>
       </div>
+      <button id="button-delete">
+        <i class="fas fa-trash"></i>
+        Delete
+      </button>
       <button id="button-accept">
         <i class="fas fa-check"></i>
         Accept

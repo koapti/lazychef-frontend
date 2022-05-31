@@ -202,6 +202,13 @@ h3{
     height: 5em;
 }
 
+#button-delete{
+    background-color: red;
+    border-radius: 2em;
+    width: 6em;
+    height: 5em;
+}
+
 #tab-num, #uwagi{
     background-color: white;
     margin-top: 2em;
