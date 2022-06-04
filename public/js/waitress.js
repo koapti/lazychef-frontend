@@ -1,31 +1,70 @@
 function addOrder(){
-    const wrapper = document.createElement('div');
-    wrapper.style = "width: 100vw; height: 100vh; background-color: white; opacity:0.8; position: fixed; top: 0; left: 0; z-index: 9999;";
-    const wrapperForm = document.createElement('form');
-    wrapperForm.className = 'name';
-    wrapperForm.style = "width: 50vw; height: 50vh; background-color: black; opacity:0.8; position: fixed; top: 25vh; left: 25vw; z-index: 9999;";
-    const btn = document.createElement('button');
-    btn.onclick = function () {
-        wrapper.remove();
-        wrapperForm.remove();
-    }
-    wrapperForm.appendChild(btn);
-    wrapper.appendChild(wrapperForm);
-    const body = document.querySelector('body');
-    body.appendChild(wrapper);
+    
 }
 
 function sumOrders(){
     const summaryTemplate = document.querySelector("#summary-orders-container");
     const clone = summaryTemplate.content.cloneNode(true);
-    const allOrders = document.querySelector(".content-waiter-container");
+    const containerContent = document.querySelector(".content-waiter-container");
     const container = document.querySelector(".container");
+    const allOrders = containerContent.querySelectorAll(".order");
+    const orderTemplate = document.querySelector("#one-order-container");
+    const placeForOrders = clone.querySelector(".table-orders");
+    const totalCost = clone.querySelector(".summary");
 
     const search = clone.querySelector('input[placeholder="nr"]');
     search.addEventListener('keyup', function(event){
+        //tutaj przefiltrowanie orderów z allOrders
+        placeForOrders.querySelectorAll(".order").forEach(element => {element.remove()});
+
+        allOrders.forEach(element =>{
+            var realOrderInfos = element.querySelector(".order-navigation").querySelectorAll("h3");
         
+            if(realOrderInfos[1].innerHTML == ("Nr. stol: " + search.value)){
+                var clone1 = orderTemplate.content.cloneNode(true);
+                var infos = clone1.querySelector(".order-details-sum").querySelectorAll("h3");
+
+                infos[0].innerHTML = realOrderInfos[0].innerHTML;
+                infos[1].innerHTML = realOrderInfos[1].innerHTML;
+
+                var infos2 = clone1.querySelector(".order-cost").querySelector("h3");
+                infos2.innerHTML = realOrderInfos[2].innerHTML;
+
+                placeForOrders.appendChild(clone1);
+            }
+        })
+
+        var prices = placeForOrders.querySelectorAll(".price");
+        var sum = Number(0); 
+        prices.forEach(element => {sum += Number(element.innerHTML)});
+
+        totalCost.querySelector("h1").innerHTML = sum;
     });
 
-    allOrders.style.display = "none";
+    const buttonBack = clone.querySelector("#button-delete");
+
+    buttonBack.addEventListener('click', function(event){
+        containerContent.style.display = '';
+        document.querySelector(".summary-orders").remove();
+    });
+
+    const buttonAccept = clone.querySelector("#button-accept");
+
+    buttonAccept.addEventListener('click', function(event){
+        var desiredOrders = placeForOrders.querySelectorAll(".order");
+        
+        if(desiredOrders.length == 0) window.alert("Nie wybrano żadnych zamowień");
+
+        allOrders.forEach(element => {
+            var infos =  element.querySelector(".order-navigation").querySelectorAll("h3");
+            if(infos[1].innerHTML == ("Nr. stol: " + search.value)) element.remove();
+        });
+
+        document.querySelector(".summary-orders").remove();
+        containerContent.style.display = '';
+        //usuniecie wszystkich divów z allOrders o id stolika podanym w formularzu
+    });
+
+    containerContent.style.display = "none";
     container.appendChild(clone);
 }
