@@ -1,19 +1,16 @@
-const { application } = require("express");
-
 function createNextAtomic(event, myForm, template){
-    console.log(template.innerHTML);
     var nextAtomicOrder = template.content.cloneNode(true);
 
     var select = nextAtomicOrder.querySelector("select");
 
     var opt0 = document.createElement("option");
-    opt0.text = null;
+    opt0.text = "null";
     select.add(opt0);
     var opt = document.createElement("option");
-    opt.text = "Kotlet + fryty";
+    opt.text = "Kotlet + fryty ," + "10";
     select.add(opt);
     var opt1 = document.createElement("option");
-    opt1.text = "zur";
+    opt1.text = "zur ," + "20";
     select.add(opt1);
 
     select.addEventListener('change', createNextAtomic.bind(null, event, myForm, template));
@@ -27,6 +24,8 @@ function addOrder(){
     const container = document.querySelector(".container");
     const clone = addOrderTemplate.content.cloneNode(true);
     const atomicOrderTemplate = document.querySelector("#options-for-make-order-container");
+    const allOrders1 = containerContent.querySelector(".orders");
+    const orderTemplate1 = document.querySelector("#orders-for-all-orders");
 
     //pobranie numeru stolika
     //dodanie opcji wyboru
@@ -43,18 +42,57 @@ function addOrder(){
     const select = atomicOrder.querySelector("#type");
 
     var opt0 = document.createElement("option");
-    opt0.text = null;
+    opt0.text = "null";
     select.add(opt0);
     var opt = document.createElement("option");
-    opt.text = "Kotlet + fryty";
+    opt.text = "Kotlet + fryty ," + "10";
     select.add(opt);
     var opt1 = document.createElement("option");
-    opt1.text = "zur";
+    opt1.text = "zur ," + "20";
     select.add(opt1);
 
     select.addEventListener('change', createNextAtomic.bind(null, event,form, atomicOrderTemplate));
 
     form.appendChild(atomicOrder);
+
+    const buttonBack = clone.querySelector("#button-delete");
+
+    buttonBack.addEventListener('click', function(event){
+        containerContent.style.display = '';
+        document.querySelector(".make-order").remove();
+    });
+
+    const buttonAccept = clone.querySelector("#button-accept");
+
+    buttonAccept.addEventListener('click', function(event){
+       //utworzenie zamowienia na glowna strone, wyslanie na backend i wstawienie zamowienia do glownego kontenera z ID zam otrzymanym z backendu
+       
+        var newOrder = orderTemplate1.content.cloneNode(true);
+
+        var orderInfos = newOrder.querySelector(".order-details").querySelectorAll("h3");
+
+        orderInfos[0].innerHTML = "Nr. zam: " + "2"; //numer z backendu
+        orderInfos[1].innerHTML = "Nr. stol: " + search.value;
+
+        var allAtomicOrders = form.querySelectorAll("#type");
+
+        var sum = Number(0);
+        var summary = '';
+        allAtomicOrders.forEach(element => {
+            if(element.value == "null") return;
+            var vars2 = element.value.split(',');
+            sum += Number(vars2[1]);
+            summary += (vars2[0] + ", ");
+        });
+
+        orderInfos[2].innerHTML = sum; //cena i to suma
+
+        orderInfos[3].innerHTML = summary;
+
+       allOrders1.appendChild(newOrder);
+       containerContent.style.display = '';
+       document.querySelector(".make-order").remove();
+    });
 
     containerContent.style.display = "none";
     container.appendChild(clone);
