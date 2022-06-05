@@ -1,5 +1,63 @@
+const { application } = require("express");
+
+function createNextAtomic(event, myForm, template){
+    console.log(template.innerHTML);
+    var nextAtomicOrder = template.content.cloneNode(true);
+
+    var select = nextAtomicOrder.querySelector("select");
+
+    var opt0 = document.createElement("option");
+    opt0.text = null;
+    select.add(opt0);
+    var opt = document.createElement("option");
+    opt.text = "Kotlet + fryty";
+    select.add(opt);
+    var opt1 = document.createElement("option");
+    opt1.text = "zur";
+    select.add(opt1);
+
+    select.addEventListener('change', createNextAtomic.bind(null, event, myForm, template));
+
+    myForm.appendChild(nextAtomicOrder);
+}
+
 function addOrder(){
-    
+    const containerContent = document.querySelector(".content-waiter-container");
+    const addOrderTemplate = document.querySelector("#make-order-container");
+    const container = document.querySelector(".container");
+    const clone = addOrderTemplate.content.cloneNode(true);
+    const atomicOrderTemplate = document.querySelector("#options-for-make-order-container");
+
+    //pobranie numeru stolika
+    //dodanie opcji wyboru
+    var tablenumber;
+    const search = clone.querySelector('input[placeholder="nr"');
+    search.addEventListener('keyup', function(event){
+        tablenumber = search.value;
+    });
+
+    const form = clone.querySelector("form");
+
+    const atomicOrder  = atomicOrderTemplate.content.cloneNode(true);
+
+    const select = atomicOrder.querySelector("#type");
+
+    var opt0 = document.createElement("option");
+    opt0.text = null;
+    select.add(opt0);
+    var opt = document.createElement("option");
+    opt.text = "Kotlet + fryty";
+    select.add(opt);
+    var opt1 = document.createElement("option");
+    opt1.text = "zur";
+    select.add(opt1);
+
+    select.addEventListener('change', createNextAtomic.bind(null, event,form, atomicOrderTemplate));
+
+    form.appendChild(atomicOrder);
+
+    containerContent.style.display = "none";
+    container.appendChild(clone);
 }
 
 function sumOrders(){
@@ -62,7 +120,6 @@ function sumOrders(){
 
         document.querySelector(".summary-orders").remove();
         containerContent.style.display = '';
-        //usuniecie wszystkich divów z allOrders o id stolika podanym w formularzu
     });
 
     containerContent.style.display = "none";
