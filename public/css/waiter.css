@@ -88,6 +88,16 @@ html, body {
     background-color: blue;
 }
 
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
+
 h3{
     margin-left: 2em;
 }

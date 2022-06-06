@@ -4,381 +4,171 @@
 <head>
   <link href="css/style.css" rel="stylesheet">
   <link href="css/waiter.css" rel="stylesheet">
-  <script src="js/waitress.js"></script>
+  <script src="ejs.min.js" defer></script>
+  <script src="js/waitress.js" defer></script>
   <script src="https://kit.fontawesome.com/d6606babc0.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"
-    integrity="sha512-5yJ548VSnLflcRxWNqVWYeQZnby8D8fJTmYRLyvs445j1XmzR8cnWi85lcHx3CUEeAX+GrK3TqTfzOO6LKDpdw=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
-    integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js" integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-
   <div class="container">
     <div class="logo-waiter">
-      <button style="margin-top:20px;height:100px;width:100px" onclick="connectBtnHandler()">
-        Connect
-      </button>
-      <button style="margin-top:20px;height:100px;width:100px" onclick="addBtnHandler()">
-        Add
-      </button>
-      <img src="img/logo.svg" height="90em">
+        <img src="img/logo.svg" height="90em">
     </div>
-
-    <div class="summary-orders">
-      <form>
-        <input name="table-number" type="number" placeholder="nr" id="tab-num">
-      </form>
-
-      <div class="table-orders">
-
-        <div class="order">
-          <div class="order-details-sum">
-            <h3>Nr zam: 2</h3>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-cost">
-            <i class="fas fa-coins"></i>
-            <h3>15zl</h3>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="summary">
-        <div>
-          <h1>
-            <i class="fas fa-coins"></i>
-            15 zl
-          </h1>
-        </div>
-        <button id="button-accept">
-          <i class="fas fa-check"></i>
-          Accept
-        </button>
-      </div>
-    </div>
-
-    <!-- htmle do zamawiania!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- <div class="make-order"> 
-
-      <div class="details">
-        <form>
-          <input name="table-number" type="number" placeholder="nr" id="tab-num">
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-
-          <div class="choose">
-            <select name="dish" id="type">
-              <option value="Kotlet + fryty">Kotlet + fryty 15zl</option>
-              <option value="zurek">zurek 10zl</option>
-              <option value="sernik">sernik 7zl</option>
-              <option value="cola">cola 20zl</option>
-            </select>
-            <input name="options" type="text" placeholder="uwagi" id="uwagi">
-          </div>
-        </form>
-      </div>
-
-      <div class="summary">
-        <div>
-          <h1>
-            <i class="fas fa-coins"></i>
-            15 zl
-          </h1>
-        </div>
-        <button id="button-accept">
-          <i class="fas fa-check"></i>
-          Accept
-        </button>
-      </div>
-    </div> -->
 
     <!-- htmle widok wszystkich zam!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- <div class="content-waiter-container">
+    <div class="content-waiter-container">
       
       <div class="orders">
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
 
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
-
-        <div class="order">
-          <div class="order-details">
-            <div class="order-navigation">
-              <h3>Nr. zam: 2</h3>
-              <h3>Nr. stol: 3</h3>
-            </div>
-            <h3>Kotlet + fryty, zur</h3>
-          </div>
-          <div class="order-info">
-            <div class="info"></div>
-            <div class="info2"></div>
-          </div>
-        </div>
       </div>
       
       <div class="waiter-buttons">
-        <button id="button-sum">S</button>
-        <button id="button-connect">Connect</button>
-        <button id="button-add">P</button>
+        <button id="button-sum" onclick="sumOrders()">S</button>
+        <button id="button-connect" onclick="connectBtnHandler()"">Connect</button>
+        <button id="button-add" onclick="navigateToOrderCreator()">P</button>
       </div>   
-    </div> -->
-  </div>
+    </div>
+</div>
 </body>
 
 </html>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- templates for making order -->
+<template id="make-order-container">
+  <div class="make-order"> <!-- one div -->
+
+      <div class="details"> <!-- one div -->
+        <form>
+          <input name="table-number" type="number" placeholder="nr" id="tab-num">
+        </form>
+      </div>
+
+      <div class="summary"> <!-- one div -->
+        <div>
+          <h1>
+            <i class="fas fa-coins"></i>
+            <!-- costSummary -->
+          </h1>
+        </div>
+        <button id="button-delete" onclick="addOrderGoBackHandler()">
+          <i class="fas fa-trash"></i>
+          Delete
+        </button>
+        <button id="button-accept" onclick="addOrderHandler()">
+          <i class="fas fa-check"></i>
+          Accept
+        </button>
+      </div>
+    </div>
+</template>
+
+<template id="form-div">
+  <div class="choose"> 
+    <select name="dish" id="type">
+    </select>
+    <input name="options" type="text" placeholder="uwagi" id="uwagi">
+  </div>
+</template>
+
+<template id="options-for-make-order-container">
+  <div class="choose"> 
+    <select name="dish" id="type">
+      <!-- multiple options ( options form DB) -->
+    </select>
+    <input name="options" type="text" placeholder="uwagi" id="uwagi">
+  </div>
+</template>
+
+<template id="option-for-make-order-container">
+  <option value=""><!-- name --></option>
+</template>
+<!-- templates for making order -->
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- templates for summary by table -->
+<template id="summary-orders-container">
+  <div class="summary-orders">
+    <form>
+      <input name="table-number" type="number" placeholder="nr" id="tab-num">
+    </form>
+  
+    <div class="table-orders">
+      <!-- multiple orders divs -->
+    </div>
+  
+    <div class="summary">
+      <div>
+        <i class="fas fa-coins"></i>
+        <h1>
+          <!-- costSummary -->
+        </h1>
+      </div>
+      <button id="button-delete">
+        <i class="fas fa-trash"></i>
+        Back
+      </button>
+      <button id="button-accept">
+        <i class="fas fa-check"></i>
+        Accept
+      </button>
+    </div>
+  </div>
+</template>
+
+<template id="one-order-container">
+  <div class="order">
+    <div class="order-details-sum">
+      <h3><!--nr zam--></h3>
+      <h3><!--opis--></h3>
+    </div>
+    <div class="order-cost">
+      <i class="fas fa-coins"></i>
+      <h3 class="price"><!--cost--></h3>
+    </div>
+  </div>
+</template>
+<!-- templates for summary by table -->
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- templates for all current orders -->
+<template id="content-waiter-all-orders-(main)">
+  <div class="content-waiter-container">
+      
+    <div class="orders">
+      <!-- multiple order divs -->
+      
+    
+    <div class="waiter-buttons">
+      <button id="button-sum">S</button>
+      <button id="button-connect">Connect</button>
+      <button id="button-add">P</button>
+    </div>   
+  </div>
+</template>
+
+<template id="orders-for-all-orders">
+  <div class="order">
+        <div class="order-details">
+          <div class="order-navigation">
+            <h3>Zamowienie: </h3>
+            <h3>Stolik: </h3>
+            <h3>Cena: </h3>
+          </div>
+          <h3>Danie: </h3>
+          <h3>Komentarz: </h3>
+        </div>
+        <div class="order-info">
+          <button class="info"></button><!-- states -->
+          <button class="info2"></button>
+        </div>
+      </div>
+</template>
+<!-- templates for all current orders -->
