@@ -4,105 +4,38 @@
 <head>
   <link href="css/style.css" rel="stylesheet">
   <link href="css/cook.css" rel="stylesheet">
-  <script src="js/cook.js"></script>
+  <script defer src="js/cook.js"></script>
   <title>COOK PAGE</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js" integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <div class="container">
       <div class="logo-cook">
-          <button id="button-connect">Connect</button>
+          <button id="button-connect" onclick="connectBtnHandler()">Connect</button>
           <img src="img/logo.svg" height="90em">
       </div>
       <div class="content-cook-container">
-          <div class="order">
-            <div class="info-order">
-              <h1>66</h1>
-              <div class="order-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty + surówka</h2>
-              <div class="atomic-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty</h2>
-              <div class="atomic-status"></div>
-            </div>
-          </div>
-
-          <div class="order">
-            <div class="info-order">
-              <h1>66</h1>
-              <div class="order-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty </h2>
-              <div class="atomic-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty</h2>
-              <div class="atomic-status"></div>
-            </div>
-          </div>
-
-          <div class="order">
-            <div class="info-order">
-              <h1>66</h1>
-              <div class="order-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty </h2>
-              <div class="atomic-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty</h2>
-              <div class="atomic-status"></div>
-            </div>
-          </div>
-
-          <div class="order">
-            <div class="info-order">
-              <h1>66</h1>
-              <div class="order-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty </h2>
-              <div class="atomic-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty</h2>
-              <div class="atomic-status"></div>
-            </div>
-          </div>
-
-          <div class="order">
-            <div class="info-order">
-              <h1>66</h1>
-              <div class="order-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty </h2>
-              <div class="atomic-status"></div>
-            </div>
-            <div class="atomic-order">
-              <h2>schabowy + fryty</h2>
-              <div class="atomic-status"></div>
-            </div>
-          </div>
       </div>
   </div>
 </body>
 </html>
 
-<template>
-  <div class="order">
+<template id="order-div">
+  <div class="order" id="">
     <div class="info-order">
-      <h1></h1>
+      <h1></h1><!--nr zam-->
       <div class="order-status"></div>
     </div>
-    <div class="atomic-order">
-      <h2></h2>
-      <div class="atomic-status"></div>
-    </div>
+    <!-- multiple atomic orders -->
+    
+  </div>
+</template>
+
+<template id="atomic-order-div">
+  <div class="atomic-order">
+    <h2><!--opis--></h2>
+    <div class="atomic-status"></div>
   </div>
 </template>

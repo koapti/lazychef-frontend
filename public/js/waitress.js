@@ -206,6 +206,13 @@ function selectChangeHandler() {
         return option;
     }).forEach(option => select.add(option))
 
+    const option = document.createElement("option");
+    option.text = "Wybierz";
+    option.selected = true;
+    option.disabled = true;
+    option.hidden = true;
+    select.add(option);
+
     select.addEventListener('change', selectChangeHandler)
     form.appendChild(formDiv);
 }
@@ -223,6 +230,13 @@ function navigateToOrderCreator(){
         return option;
     }).forEach(option => select.add(option))
 
+    const option = document.createElement("option");
+    option.text = "Wybierz";
+    option.selected = true;
+    option.disabled = true;
+    option.hidden = true;
+    option.className = "select default"
+    select.add(option);
 
     select.addEventListener('change', selectChangeHandler)
 
@@ -245,6 +259,7 @@ function addOrderHandler(event) {
     }
     const ordersFood = Array.from(form.children)
     .filter(element => element.nodeName === "DIV")
+    .filter(element => element.children[0].options[element.children[0].selectedIndex].className !== "select default")
     .map(element => element.children)
     .map(children => {
         const foodId = children[0].options[children[0].selectedIndex].id;
