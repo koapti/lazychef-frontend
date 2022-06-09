@@ -16,7 +16,7 @@
           <button id="button-connect" onclick="connectBtnHandler()">Connect</button>
           <img src="img/logo.svg" height="90em">
       </div>
-      <div class="content-cook-container">
+      <div id="content-cook-container" class="content-cook-container">
       </div>
   </div>
 </body>
@@ -26,7 +26,6 @@
   <div class="order" id="">
     <div class="info-order">
       <h1></h1><!--nr zam-->
-      <div class="order-status"></div>
     </div>
     <!-- multiple atomic orders -->
     
@@ -35,7 +34,10 @@
 
 <template id="atomic-order-div">
   <div class="atomic-order">
-    <h2><!--opis--></h2>
+    <div class="order-description">
+      <span class="food-name"><!--opis--></span>
+      <span class="food-comments"><!--opis--></span>
+    </div>
     <div class="atomic-status"></div>
   </div>
 </template>

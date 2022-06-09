@@ -11,6 +11,33 @@
     border-radius: 0 0 1em 1em;
 }
 
+.red {
+    background-color: red !important;
+}
+.yellow {
+    background-color: yellow !important;
+}
+.green {
+    background-color: green !important;
+}
+
+.order-description {
+    display:flex;
+    flex-direction: column;
+}
+.order-description h2 h5 {
+    max-height: 30%;
+}
+.order-description span {
+    display: block;
+}
+.food-name {
+    font-size: 2em;
+}
+.food-comments {
+    font-size: 0.8em;
+}
+
 #button-connect{
     background-color: lightgray;
     height: 4em;
@@ -52,12 +79,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: lightgray;
     margin: 0.5em;
     border: 2px black;
     border-style: solid;
     border-radius: 1em;
+    padding: 1em;
 }
 
 h2{

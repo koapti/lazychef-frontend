@@ -54,30 +54,37 @@ function addOrder(message) {
     const receivedOrderFoods = message.orderFoods;
 
     receivedOrderFoods.forEach(orderFood => {
-        orderFoods.push({...orderFood, tableNr: tableNr});
         const orderId = orderFood.orderId;
-        const orderFoodId = orderFood.id;
-        const comments = orderFood.comments;
-        const foodState = orderFood.foodState;
-        const foodId = orderFood.foodId;
+        const foodName = sampleFood.filter(food => food.id == orderFood.foodId)[0].name
+        if(orderFoods.filter(orderFood => orderFood.orderId == orderId).length != 0) {
+            const orderContainer = document.getElementById(orderId);
+            const newOrder = document.getElementById("atomic-order-div").content.children[0].cloneNode(true);
+            newOrder.id = orderFood.id;
+            newOrder.children[0].children[0].innerHTML = foodName;
+            newOrder.children[0].children[1].innerHTML = orderFood.comments
+            newOrder.children[1].onclick = () => updateBtnHandler(orderFood.id);
+            orderContainer.appendChild(newOrder);
+        } else {
+            const mainContainer = document.getElementById("content-cook-container");
+            const orderContainer = document.getElementById("order-div").content.children[0].cloneNode(true);
+            const newOrder = document.getElementById("atomic-order-div").content.children[0].cloneNode(true);
+            orderContainer.id = orderFood.orderId;
+            orderContainer.children[0].children[0].innerHTML = orderFood.orderId;
+            newOrder.id = orderFood.id;
+            newOrder.children[0].children[0].innerHTML = foodName;
+            newOrder.children[0].children[1].innerHTML = orderFood.comments
+            newOrder.children[1].onclick = () => updateBtnHandler(orderFood.id);
+            orderContainer.appendChild(newOrder);
+            mainContainer.appendChild(orderContainer);
+        }
 
-        const food = sampleFood.filter(obj => obj.id === foodId)[0]
-        const element = document.querySelector("#orders-for-all-orders").content.children[0].cloneNode(true);
-        
-        element.id = orderFood.id;
-        const orderNavigation = element.children[0].children[0].children;
-        orderNavigation[0].innerHTML += orderId;
-        orderNavigation[1].innerHTML += tableNr;
-        orderNavigation[2].innerHTML += food.cost;
+        orderFoods.push({...orderFood, tableNr: tableNr});
+        // const orderFoodId = orderFood.id;
+        // const comments = orderFood.comments;
+        // const foodState = orderFood.foodState;
+        // const foodId = orderFood.foodId;
 
-        element.children[0].children[1].innerHTML += food.name;
-        element.children[0].children[2].innerHTML += comments;
-
-        //const removeButton = element.children[0].children[1].children[1];
-        element.children[1].children[0].onclick = () => removeBtnHandler(orderFoodId);
-        element.children[1].children[1].onclick = () => updateBtnHandler(orderFoodId);
-    
-        document.querySelector(".orders").appendChild(element);
+        // const food = sampleFood.filter(obj => obj.id === foodId)[0]
     })
 }
 
@@ -123,12 +130,25 @@ function updateFoodState(message) {
         obj.foodState = newState;
         document.getElementById(obj.id)
             .children[1]
-            .children[1]
-            .className = "info2 " + newStateColor;
+            .className = "atomic-status " + newStateColor;
     })
 
 }
 
+function removeOrderFood(message) {
+    const removedOrderFoodId = message.orderFoodId;
+    const index = orderFoods.findIndex(orderFood => orderFood.id === removedOrderFoodId);
+    orderFoods.splice(index,1);
+
+    const orderFoodToRemove = document.getElementById(removedOrderFoodId);
+    const parent = orderFoodToRemove.parentElement;
+    orderFoodToRemove.remove();
+
+    if(parent.children.length == 1) {
+        parent.remove()
+    }
+
+}
 
 
 
@@ -183,7 +203,6 @@ function changeStatusByDiv(event, divStatus, isAtomicOrder){
 }
 
 function addOrderToList(){
-    console.log('dupa')
     const templateOrder = document.querySelector('#order-div');
     const templateAtomicOrder = document.querySelector('#atomic-order-div');
     const container = document.querySelector('.content-cook-container');
