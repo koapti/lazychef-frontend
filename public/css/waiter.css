@@ -19,6 +19,7 @@ html, body {
 }
 
 .content-waiter-container{
+    font-size: large;
     height: 50em;
     display: flex;
     flex-direction: column;
@@ -68,9 +69,10 @@ html, body {
 
 .info{
     align-self: center;
-    width: 2em;
-    height: 2em;
+    width: 4em;
+    height: 4em;
     border-radius: 100%;
+    font-size: 16px;
     border-width: medium;
     border-style: solid;
     background-color: red;
@@ -78,14 +80,14 @@ html, body {
 
 .info2{
     align-self: center;
-    width: 2em;
-    height: 2em;
+    width: 4em;
+    height: 4em;
     border-radius: 100%;
     border-width: medium;
     border-style: solid;
-    margin-left: 1em;
-    margin-right: 2em;
-    background-color: blue;
+    margin-left: 0em;
+    margin-right: 1em;
+    background-color: indianred;
 }
 
 .red {
@@ -160,6 +162,7 @@ h3{
 }
 
 .details, .details>form, .choose{
+    font-size: medium;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,7 +176,8 @@ h3{
 }
 
 #tab-num{
-    width: 4em;
+    font-size: xx-large;
+    width: 1.5em;
 }
 
 .choose{
@@ -181,9 +185,12 @@ h3{
 }
 
 #type{
+    font-size: x-large;
     border-radius: 1em;
     height: 4em;
-    width: 30em;
+    width: 100%;
+    /* width: 30em; */
+    
 }
 
 .summary{
@@ -224,6 +231,7 @@ h3{
 }
 
 #uwagi{
+    font-size: x-large;
     margin-top: 0px;
     border-radius: 0 0 1em 1em;
     height: 3em;
