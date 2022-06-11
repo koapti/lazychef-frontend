@@ -44,6 +44,11 @@ app.get('/ownerAddEmp', (req, res) => {
   res.render('ownerAddEmp')
 })
 
+app.get('/rejestration', (req, res) => {
+  // check AUTH
+  res.render('rejestration')
+})
+
 app.get('/ownerEditMenu', (req, res) => {
   // check AUTH
   res.render('ownerEditMenu')
