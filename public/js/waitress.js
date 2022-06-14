@@ -159,7 +159,7 @@ function addOrder(message) {
 
         //const removeButton = element.children[0].children[1].children[1];
         element.children[1].children[0].onclick = () => removeBtnHandler(orderFoodId);
-        element.children[1].children[1].onclick = () => updateBtnHandler(orderFoodId);
+        //element.children[1].children[1].onclick = () => updateBtnHandler(orderFoodId);
     
         document.querySelector(".orders").appendChild(element);
     })
